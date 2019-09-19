@@ -5,5 +5,4 @@
 * In the `main.scss` there is an animation on the "Continue" button on the page. Create a promise which executes code upon the button's animation end. **You must use the `async await` syntax.** 
 * Upon the animation end, display an alert saying "Continue to subscribe", and change the background color of the button. 
 
-**Notes**: 
-* See reference image. 
+![On animation end](images/animationend.png)

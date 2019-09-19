@@ -1,4 +1,5 @@
 import "../styles/main.scss";
+import "babel-polyfill"
 
 const modal = document.getElementById("myModal");
 let promiseOfModal = new Promise(function (resolve) {

@@ -2,16 +2,25 @@ import "../styles/main.scss";
 import "babel-polyfill"
 
 const modal = document.getElementById("myModal");
+const button = document.getElementById("continue");
+
+
 let promiseOfModal = new Promise(function (resolve) {
     window.setTimeout(function () {
         resolve(modal)
-    }, (1000 * 60));
+    }, 60000);
 });
 
-promiseOfModal.then(function(val) {
-    console.log("User has been on the page for 60 seconds");
-    val.style.display = "block";
-})
+async function funcPromise () {
+    let modal = await promiseOfModal
+    modal.style.display = "block"
+}
+funcPromise()
+
+// promiseOfModal.then(function(val) {
+//     console.log("User has been on the page for 60 seconds");
+//     val.style.display = "block";
+// })
 
 modal.addEventListener("click", (e) => {
     switch(e.target.className) {
@@ -22,3 +31,22 @@ modal.addEventListener("click", (e) => {
     }
 })
 
+
+let buttonPromise = new Promise(function (resolve, reject) {
+   
+        setTimeout(() => {  
+           
+            resolve("Please subscribe")
+        }, 250)
+   
+})
+
+async function popup() {
+    button.style.backgroundColor = "red"
+    let popup = await buttonPromise
+    
+    alert(popup)
+    
+}
+
+button.addEventListener("mouseout", popup)
